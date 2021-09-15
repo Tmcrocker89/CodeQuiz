@@ -5,6 +5,7 @@ let answer2 = document.getElementById("answer2");
 let answer3 = document.getElementById("answer3");
 let answer4 = document.getElementById("answer4");
 let result = document.getElementById("result");
+let answersDiv = document.getElementById("answers");
 let startQuizBtn = document.getElementById("startQuizBtn");
 let questionNumber = 0;
 let timerValue = 75;
@@ -53,6 +54,7 @@ function updateQuestion()
 {
     if(questionNumber < questions.length)
     {
+
         question.innerText = questions[questionNumber].question;
         answer1.innerText = questions[questionNumber].Option1;
         answer2.innerText = questions[questionNumber].Option2;
@@ -67,6 +69,7 @@ function updateQuestion()
     else
     {
         question.innerText = "Congratulations you completed the test with " + timerValue + " seconds remaining!";
+        answersDiv.style.visibility = "hidden";
         answer1.innerText = "";
         answer2.innerText = "";
         answer3.innerText = "";
@@ -84,18 +87,17 @@ function updateQuestion()
 
 function startQuiz()
 {
+    answersDiv.style.visibility = "visible";
     var timeInterval = setInterval(function () {
-        // As long as the `timeLeft` is greater than 1
         if (timerValue > 1 && questionNumber < questions.length) {
-          // Set the `textContent` of `timerEl` to show the remaining seconds
           timeRemaining.textContent = "Time:" + timerValue;
-          // Decrement `timeLeft` by 1
           timerValue--;
         } else {
-          // Use `clearInterval()` to stop the timer
           clearInterval(timeInterval);
         }
       }, 1000);
+
+    startQuizBtn.style.visibility = "hidden";
 
     if(questionNumber < questions.length)
     {
