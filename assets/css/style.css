@@ -31,22 +31,20 @@ body{
     font-size: 20px;
 }
 
-div ol{
-    background-color: lightblue;
-}
 
-div ol li{
+#answer1, #answer2, #answer3, #answer4, #result{
     margin: 15px;
+    background-color: lightblue;
 }
 
 #quiz{
     max-width: 350px;
     margin-left: 40%;
-    margin-top: 20%;
+    margin-top: 10%;
 }
 
 #question{
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bolder;
 }
 
