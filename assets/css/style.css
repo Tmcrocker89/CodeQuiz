@@ -32,9 +32,14 @@ body{
 }
 
 
-#answer1, #answer2, #answer3, #answer4, #result{
+#answer1, #answer2, #answer3, #answer4{
     margin: 15px;
     background-color: lightblue;
+}
+
+#result{
+    font-style: italic;
+    font-size: 30px;
 }
 
 #quiz{
