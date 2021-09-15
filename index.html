@@ -5,26 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
+    <title>Code Quiz</title>
 </head>
 <body>
     <header id="header">
         <nav id="navBar">
             <div id="highscore"> <a href="#">High Scores</a></div>
-            <div id="timeRemaining">Timer</div>
+            <div id="timeRemaining"></div>
         </nav>
     </header>
     <div id="quiz">
-        <div id="question">This is the question.</div>
+        <div id="question">This is a javascript quiz, click start quiz to begin. You have 75 seconds to complete the 4 questions. Guessing wrong deducts 10 seconds </div>
         <div id="answers">
-            <ol id="answersList">
-                <li id="answer1">answer1</li>
-                <li id="answer2">answer2</li>
-                <li id="answer3">answer3</li>
-                <li id="answer4">answer4</li>
-            </ol>
+            <div id="answer1"></div>
+            <div id="answer2"></div>
+            <div id="answer3"></div>
+            <div id="answer4"></div>
         </div>
-        <div id="result">right/wrong</div>
+        <div id="result"></div>
+    </div>
+    <div>
+        <input type="button" id="startQuizBtn" value="Start Quiz">
     </div>
 
     <script src="./assets/js/script.js"></script>
