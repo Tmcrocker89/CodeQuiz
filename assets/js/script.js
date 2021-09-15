@@ -60,7 +60,9 @@ function updateQuestion()
         answer4.innerText = questions[questionNumber].Option4;
         let delayReset = setInterval(function (){
             result.innerText = "";
-        },1000)
+            clearInterval(delayReset);
+        },2000)
+        
     }
     else
     {
@@ -70,6 +72,10 @@ function updateQuestion()
         answer3.innerText = "";
         answer4.innerText = "";
         timeRemaining.innerText = "";
+        let delayReset = setInterval(function (){
+            result.innerText = "";
+            clearInterval(delayReset);
+        },2000)
     }
     
 
@@ -91,12 +97,14 @@ function startQuiz()
         }
       }, 1000);
 
-    question.innerText = questions[questionNumber].question;
-    answer1.innerText = questions[questionNumber].Option1;
-    answer2.innerText = questions[questionNumber].Option2;
-    answer3.innerText = questions[questionNumber].Option3;
-    answer4.innerText = questions[questionNumber].Option4;
-
+    if(questionNumber < questions.length)
+    {
+        question.innerText = questions[questionNumber].question;
+        answer1.innerText = questions[questionNumber].Option1;
+        answer2.innerText = questions[questionNumber].Option2;
+        answer3.innerText = questions[questionNumber].Option3;
+        answer4.innerText = questions[questionNumber].Option4;
+    }
     function checkAnswer(answer)
     {
         let divId = answer.srcElement.id;
