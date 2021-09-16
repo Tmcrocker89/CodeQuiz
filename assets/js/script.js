@@ -10,7 +10,7 @@ let startQuizBtn = document.getElementById("startQuizBtn");
 let initials = document.getElementById("textBox");
 let questionNumber = 0;
 let timerValue = 75;
-let scores = JSON.parse(localStorage.getItem("scores"));
+let scores = [];
 let questions = 
 [
     {
@@ -163,9 +163,14 @@ startQuizBtn.onclick = function()
 
 function saveScoreLocal()
 {
+    if(scores !== null)
+    {
+        scores = JSON.parse(localStorage.getItem("scores"));
+    }
     let initals = document.getElementById("textBox").value;
     console.log("saved");
     scores.push([initals, timerValue])
     localStorage.setItem("scores", JSON.stringify(scores));
 }
+
 
