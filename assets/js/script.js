@@ -7,6 +7,7 @@ let answer4 = document.getElementById("answer4");
 let result = document.getElementById("result");
 let answersDiv = document.getElementById("answers");
 let startQuizBtn = document.getElementById("startQuizBtn");
+let textBox = document.getElementById("textBox");
 let questionNumber = 0;
 let timerValue = 75;
 let questions = 
@@ -47,7 +48,7 @@ let questions =
 ];
 
 
-
+textBox.style.visibility = "hidden";
 
 
 function updateQuestion()
@@ -55,28 +56,29 @@ function updateQuestion()
     if(questionNumber < questions.length)
     {
 
-        question.innerText = questions[questionNumber].question;
-        answer1.innerText = questions[questionNumber].Option1;
-        answer2.innerText = questions[questionNumber].Option2;
-        answer3.innerText = questions[questionNumber].Option3;
-        answer4.innerText = questions[questionNumber].Option4;
+        question.textContent = questions[questionNumber].question;
+        answer1.textContent = questions[questionNumber].Option1;
+        answer2.textContent = questions[questionNumber].Option2;
+        answer3.textContent = questions[questionNumber].Option3;
+        answer4.textContent = questions[questionNumber].Option4;
         let delayReset = setInterval(function (){
-            result.innerText = "";
+            result.textContent = "";
             clearInterval(delayReset);
         },2000)
         
     }
     else
     {
-        question.innerText = "Congratulations you completed the test with " + timerValue + " seconds remaining!";
+        question.innerHTML = "<p>Congratulations you completed the test with " + timerValue + " seconds remaining!</p>" + '<input type="text" id ="textBox" placeholder="Enter Initals"> <input type="button" id="saveScore" value="Save High Score!">';
+        textBox.style.visibility = "visible";
         answersDiv.style.visibility = "hidden";
-        answer1.innerText = "";
-        answer2.innerText = "";
-        answer3.innerText = "";
-        answer4.innerText = "";
-        timeRemaining.innerText = "";
+        answer1.textContent = "";
+        answer2.textContent = "";
+        answer3.textContent = "";
+        answer4.textContent = "";
+        timeRemaining.textContent = "";
         let delayReset = setInterval(function (){
-            result.innerText = "";
+            result.textContent = "";
             clearInterval(delayReset);
         },2000)
     }
@@ -101,11 +103,11 @@ function startQuiz()
 
     if(questionNumber < questions.length)
     {
-        question.innerText = questions[questionNumber].question;
-        answer1.innerText = questions[questionNumber].Option1;
-        answer2.innerText = questions[questionNumber].Option2;
-        answer3.innerText = questions[questionNumber].Option3;
-        answer4.innerText = questions[questionNumber].Option4;
+        question.textContent = questions[questionNumber].question;
+        answer1.textContent = questions[questionNumber].Option1;
+        answer2.textContent = questions[questionNumber].Option2;
+        answer3.textContent = questions[questionNumber].Option3;
+        answer4.textContent = questions[questionNumber].Option4;
     }
     function checkAnswer(answer)
     {
@@ -113,16 +115,16 @@ function startQuiz()
         console.log(divId);
         let divSelected = document.getElementById(divId);
         console.log(divSelected);
-        if(divSelected.innerText === questions[questionNumber][`${questions[questionNumber].Answer}`])
+        if(divSelected.textContent === questions[questionNumber][`${questions[questionNumber].Answer}`])
         {
 
-            result.innerText = "Correct!";
+            result.textContent = "Correct!";
             questionNumber++
             updateQuestion()
         }
         else
         {
-            result.innerText = "Incorrect!";
+            result.textContent = "Incorrect!";
             timerValue -= 10;
             questionNumber++
             updateQuestion()
