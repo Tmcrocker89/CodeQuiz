@@ -1,20 +1,23 @@
 let highScoreUL = document.getElementById("highScoreList");
-let scores = JSON.parse(localStorage.getItem("scores"));
+let scores = JSON.parse(localStorage.getItem("scores"));;
 let clearScore = document.getElementById("clearScore");
 
 
 
 function loadScores()
 {
-    highScoreUL.innerHTML = "";
-    for(let i =0; i < scores.length; i++)
+    if(scores !== null)
     {
-    var score = scores[i];
+        highScoreUL.innerHTML = "";
+        for(let i =0; i < scores.length; i++)
+        {
+        var score = scores[i];
 
-    var li = document.createElement("li");
-    li.textContent = score;
-    li.setAttribute("data-index", i);
-    highScoreUL.appendChild(li);
+        var li = document.createElement("li");
+        li.textContent = score;
+        li.setAttribute("data-index", i);
+        highScoreUL.appendChild(li);
+        }
     }
 }
 
