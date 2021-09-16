@@ -163,7 +163,7 @@ startQuizBtn.onclick = function()
 
 function saveScoreLocal()
 {
-    if(scores !== null)
+    if(scores.length > 0)
     {
         scores = JSON.parse(localStorage.getItem("scores"));
     }
