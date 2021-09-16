@@ -12,9 +12,10 @@ function loadScores()
         for(let i =0; i < scores.length; i++)
         {
         var score = scores[i];
+        let newItem = i+1 + " " + score[0] + ":" + score[1]
 
         var li = document.createElement("li");
-        li.textContent = score;
+        li.textContent = newItem;
         li.setAttribute("data-index", i);
         highScoreUL.appendChild(li);
         }
