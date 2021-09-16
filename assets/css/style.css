@@ -20,16 +20,18 @@ body{
 }
 
 
-#highscore{
+#highScorePage{
     position: absolute;
     left: 0;
     font-size: 25px;
     text-decoration: none;
+    color: lightblue;
 }
 #timeRemaining{
     position: absolute;
     right: 10px;
     font-size: 20px;
+    color: lightblue;
 }
 
 
@@ -67,4 +69,20 @@ body{
 
 #result{
     font-size: 20px;
+}
+
+#startQuizBtn{
+    position: relative;
+    left: 40%;
+    padding: 10px;
+    background-color: lightblue;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+
+#saveScore{
+    padding: 10px;
+    background-color: lightblue;
+    border-radius: 5px;
+    font-weight: bolder;
 }
