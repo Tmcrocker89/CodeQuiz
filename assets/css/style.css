@@ -25,13 +25,17 @@ body{
     left: 0;
     font-size: 25px;
     text-decoration: none;
-    color: lightblue;
+    background-color: lightblue;
+    color: black;
+    margin: 10px;
+    margin-left: 25px;
 }
 #timeRemaining{
     position: absolute;
     right: 10px;
     font-size: 20px;
-    color: lightblue;
+    background-color: lightblue;
+    color: black;
 }
 
 
@@ -80,9 +84,35 @@ body{
     font-weight: bolder;
 }
 
-#saveScore{
+#saveScore, #goBack, #clearScore{
     padding: 10px;
     background-color: lightblue;
     border-radius: 5px;
     font-weight: bolder;
+}
+
+#textBox{
+    padding: 10px;
+    background-color: lightblue;
+}
+
+#highScoreList li{
+    list-style-type: none;
+    flex: 0 1 1px;
+    margin: 15px;
+    background-color: lightblue;
+    cursor:pointer;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+#highScorePageHTML{
+    max-width: 350px;
+    margin-left: 40%;
+    margin-top: 10%;
+}
+
+#highScoreButtons{
+    position: relative;
+    left: 15%;
 }

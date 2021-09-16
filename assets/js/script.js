@@ -7,9 +7,10 @@ let answer4 = document.getElementById("answer4");
 let result = document.getElementById("result");
 let answersDiv = document.getElementById("answers");
 let startQuizBtn = document.getElementById("startQuizBtn");
-let textBox = document.getElementById("textBox");
+let initials = document.getElementById("textBox");
 let questionNumber = 0;
 let timerValue = 75;
+let scores = JSON.parse(localStorage.getItem("scores"));
 let questions = 
 [
     {
@@ -48,7 +49,6 @@ let questions =
 ];
 
 
-textBox.style.visibility = "hidden";
 
 
 function updateQuestion()
@@ -69,14 +69,14 @@ function updateQuestion()
     }
     else
     {
-        question.innerHTML = "<p>Congratulations you completed the test with " + timerValue + " seconds remaining!</p>" + '<input type="text" id ="textBox" placeholder="Enter Initals"> <input type="button" id="saveScore" value="Save High Score!">';
-        textBox.style.visibility = "visible";
+        question.innerHTML = "<p>Congratulations you completed the test with " + timerValue + " seconds remaining!</p>" + '<form><input type="text" id ="textBox" placeholder="Enter Initals"> <input type="button" onclick="saveScoreLocal()" id="saveScore" value="Save High Score!"></form>';
         answersDiv.style.visibility = "hidden";
         answer1.textContent = "";
         answer2.textContent = "";
         answer3.textContent = "";
         answer4.textContent = "";
         timeRemaining.textContent = "";
+        saveScore = document.getElementById("saveScore");
         let delayReset = setInterval(function (){
             result.textContent = "";
             clearInterval(delayReset);
@@ -112,9 +112,7 @@ function startQuiz()
     function checkAnswer(answer)
     {
         let divId = answer.srcElement.id;
-        console.log(divId);
         let divSelected = document.getElementById(divId);
-        console.log(divSelected);
         if(divSelected.textContent === questions[questionNumber][`${questions[questionNumber].Answer}`])
         {
 
@@ -152,8 +150,22 @@ function startQuiz()
         checkAnswer(event);
 
     }
+
+
+
+    
 }
 
-startQuizBtn.onclick = function(){
+startQuizBtn.onclick = function()
+{
     startQuiz();
 }
+
+function saveScoreLocal()
+{
+    let initals = document.getElementById("textBox").value;
+    console.log("saved");
+    scores.push([initals, timerValue])
+    localStorage.setItem("scores", JSON.stringify(scores));
+}
+
