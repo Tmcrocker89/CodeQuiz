@@ -54,7 +54,7 @@ let questions =
 
 function updateQuestion()
 {
-    if(questionNumber < questions.length)
+    if(questionNumber < questions.length && timerValue > 0)
     {
 
         question.textContent = questions[questionNumber].question;
@@ -92,11 +92,19 @@ function startQuiz()
 {
     answersDiv.style.visibility = "visible";
     var timeInterval = setInterval(function () {
-        if (timerValue > 1 && questionNumber < questions.length) {
+        if (timerValue > 0 && questionNumber < questions.length) {
           timeRemaining.textContent = "Time:" + timerValue;
           timerValue--;
         } else {
           clearInterval(timeInterval);
+          question.innerHTML = "<p>Congratulations you completed the test with " + timerValue + " seconds remaining!</p>" + '<form><input type="text" id ="textBox" placeholder="Enter Initals"> <input type="button" onclick="saveScoreLocal()" id="saveScore" value="Save High Score!"></form>';
+          answersDiv.style.visibility = "hidden";
+          answer1.textContent = "";
+          answer2.textContent = "";
+          answer3.textContent = "";
+          answer4.textContent = "";
+          timeRemaining.textContent = "";
+          saveScore = document.getElementById("saveScore");
         }
       }, 1000);
 
