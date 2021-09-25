@@ -1,4 +1,4 @@
-# Password Generator
+# Code Quiz
 
 [Link To Deployed Website](https://tmcrocker89.github.io/CodeQuiz/)
 
